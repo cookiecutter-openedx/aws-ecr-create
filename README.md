@@ -10,12 +10,12 @@
 
 # aws-ecr-create
 
-Creates an AWS Elastic Container Registry repository.
+Creates an AWS Elastic Container Registry repository if it does not already exist.
 ## Usage:
 
 
 ```yaml
-name: Example Build Docker image for Tutor "Backup & Restore" Plugin
+name: Example workflow
 
 on: workflow_dispatch
 
@@ -36,9 +36,9 @@ jobs:
           aws-region: us-east-2
 
       # This action
-      - name: Build the image and upload to AWS ECR
-        uses: openedx-actions/tutor-plugin-build-backup
+      - name: Create an AWS ECR repository
+        uses: openedx-actions/create-aws-ecr-repository
         with:
-          aws-ecr-registry: 123456789042.dkr.ecr.us-east-2.amazonaws.com
-          aws-ecr-repository: openedx
+          aws-ecr-repository: my_new_repo
+
 ```
