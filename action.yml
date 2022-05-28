@@ -33,3 +33,4 @@ runs:
     - name: Create the repository
       run: |
         aws ecr describe-repositories --repository-names ${AWS_ECR_REPOSITORY} || aws ecr create-repository --repository-name ${AWS_ECR_REPOSITORY}
+      shell: bash
