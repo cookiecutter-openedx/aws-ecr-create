@@ -6,7 +6,7 @@
 #  - https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
 #------------------------------------------------------------------------------
-name: '"Build Tutor Backup & Restore Plugin" Action For GitHub Actions'
+name: '"Create AWS ECR Repository" Action For GitHub Actions'
 description: 'Build a Docker container for the hastexo Backup plugin and upload to AWS ECR'
 branding:
   icon: 'cloud'
