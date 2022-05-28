@@ -1,0 +1,35 @@
+#------------------------------------------------------------------------------
+#
+#
+# see
+#  - https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
+#  - https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+#
+#------------------------------------------------------------------------------
+name: '"Build Tutor Backup & Restore Plugin" Action For GitHub Actions'
+description: 'Build a Docker container for the hastexo Backup plugin and upload to AWS ECR'
+branding:
+  icon: 'cloud'
+  color: 'orange'
+inputs:
+  aws-ecr-repository:
+    description: 'The name of the repository to create in AWS Elastic Container Registry (ECR) in your AWS account. Defaults to "openedx"'
+    required: false
+    default: 'openedx'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v1
+
+    - name: Setup environment
+      run: |
+        echo "AWS_ECR_REPOSITORY=${{ inputs.aws-ecr-repository }}" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Create the repository
+      run: |
+        aws ecr describe-repositories --repository-names ${AWS_ECR_REPOSITORY} || aws ecr create-repository --repository-name ${AWS_ECR_REPOSITORY}
