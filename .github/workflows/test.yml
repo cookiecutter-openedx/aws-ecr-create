@@ -26,4 +26,4 @@ jobs:
       - name: Use the action in this repo to create an AWS ECR repository
         uses: ./
         with:
-          aws-ecr-repository: openedx
+          aws-ecr-repository: openedx_test_repo
