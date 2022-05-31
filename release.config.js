@@ -6,7 +6,7 @@ module.exports = {
       [
         "@semantic-release/changelog",
         {
-          "changelogFile": "docs/CHANGELOG.md"
+          "changelogFile": "CHANGELOG.md"
         }
       ],
       "@semantic-release/github",
@@ -14,9 +14,7 @@ module.exports = {
         "@semantic-release/git",
         {
           "assets": [
-            "docs/CHANGELOG.md",
-            "package.json",
-            "package-lock.json"
+            "CHANGELOG.md"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
