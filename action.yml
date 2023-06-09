@@ -19,7 +19,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v3.5.2
+    - uses: actions/checkout@v3.5.3
 
     - name: Login to Amazon ECR
       id: login-ecr
