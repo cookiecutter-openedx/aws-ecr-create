@@ -12,7 +12,7 @@ jobs:
 
     steps:
       # required antecedent
-      - uses: actions/checkout@v4.1.6
+      - uses: actions/checkout@v4.2.2
 
       # required antecedent
       - name: Configure AWS credentials
